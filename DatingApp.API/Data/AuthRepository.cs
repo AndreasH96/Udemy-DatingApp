@@ -31,17 +31,13 @@ namespace DatingApp.API.Data
             using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
             {
                 var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-                bool correctPassword = true;
-                if(computedHash.Length != passwordHash.Length) {
-                    correctPassword = false;
-                }
                 for ( int i = 0 ; i< computedHash.Length;i++)
                 {
                     if (computedHash[i] != passwordHash[i]){
-                        correctPassword = false;
+                        return false;
                     }
                 }
-                return correctPassword;
+                return true;
             }    
         }
 
