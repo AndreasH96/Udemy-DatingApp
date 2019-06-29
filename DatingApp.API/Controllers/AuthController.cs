@@ -60,7 +60,7 @@ namespace DatingApp.API.Controllers
                 new Claim(ClaimTypes.Name, userFromRepo.Username) //Users username
             };
             //Generates key                             
-            var key = new SymmetricSecurityKey(Encoding.UTF8                    
+            var key = new SymmetricSecurityKey(Encoding.UTF8
             .GetBytes(_config.GetSection("AppSettings:Token").Value));
             //Signs the key and encrypts it using HMACSHA512
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
@@ -76,11 +76,16 @@ namespace DatingApp.API.Controllers
             var tokenHandler = new JwtSecurityTokenHandler();
             //Creates the token with the tokenhandler based on the tokendescriptor
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            
+
             //Sends back token to the client
-            return Ok(new{
+            return Ok(new
+            {
                 token = tokenHandler.WriteToken(token)
             });
         }
+
+
+
+
     }
 }
