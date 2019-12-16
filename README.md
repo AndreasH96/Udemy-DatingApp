@@ -1,5 +1,5 @@
 # DatingApp
-This project was delevoped as part of a course on [Udemy](www.udemy.com)
+This project was delevoped as part of a course on [Udemy](https://udemy.com)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 ## For DatingAppSPA
